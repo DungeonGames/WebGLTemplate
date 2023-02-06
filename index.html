@@ -48,8 +48,8 @@
       transition: 400ms linear;
     }
     
-    .dungeon-logo {
-      background-image: url('icon.png');
+    #dungeon-logo {
+      background-image: url('logo.png');
       position: absolute;
       display: block;
       width: 256px;
@@ -63,7 +63,7 @@
 
 <body>
   <canvas id="unity-canvas"></canvas>
-  <div class="dungeon-logo">
+  <div id="dungeon-logo">
     <div id="unity-loading-bar">
       <div id="unity-progress-bar">
       </div>
@@ -98,6 +98,7 @@
     };
 
     var canvas = document.querySelector("#unity-canvas");
+    var dungeonLogo = document.querySelector("#dungeon-logo");
     var loadingBar = document.querySelector("#unity-loading-bar");
     var progressBar = document.querySelector("#unity-progress-bar");
 
@@ -109,7 +110,7 @@
         progressBar.style.width = 100 * progress + "%";
       }).then(function(unityInstance) {
         myGameInstance = unityInstance;
-        loadingBar.style.display = "none";
+        dungeonLogo.style.display = "none";
       }).catch(function(message) {
         alert(message);
       });
